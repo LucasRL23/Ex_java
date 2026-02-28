@@ -24,8 +24,15 @@ public class Ex04 {
     }
 
     int compute(int n, int c, int m) {
-        int output =  -1;
-        //put your logic here
-        return output;
+        int total = n/c;
+        int embalagens = total;
+
+        while (embalagens >= m) {
+                int ganhos = embalagens / m;
+                total += ganhos;
+                embalagens = (embalagens % m) + ganhos;
+        }
+
+        return total;
     }
 }
