@@ -27,8 +27,20 @@ public class Ex05 {
     }
 
     int compute(int[] velas) {
-        int output = -1;
-        //put your logic here
-        return output;
+        int maiorAltura = velas[0];
+        int contador = 0;
+
+        for (int i = 1; i < velas.length; i++) {
+            if (velas[i] > maiorAltura) {
+                maiorAltura = velas[i];
+            }
+        }
+        for (int vela : velas) {
+            if (vela == maiorAltura) {
+                contador++;
+            }
+        }
+
+        return contador;
     }
 }
