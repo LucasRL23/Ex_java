@@ -47,8 +47,12 @@ public class Ex07 {
     }
 
     String compute(int x, int y, int l1, int h1, int l2, int h2) {
-        String output = null;
-        //put your logic here
-        return output;
+        if (l1 + l2 <= x && Math.max(h1, h2) <= y)
+            return "S";
+
+        if (h1 + h2 <= y && Math.max(l1, l2) <= x)
+            return "S";
+
+        return "N";
     }
 }
