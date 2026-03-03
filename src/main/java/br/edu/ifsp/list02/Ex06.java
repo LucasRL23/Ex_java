@@ -26,8 +26,14 @@ public class Ex06 {
     }
 
     String compute(int[] arrayA, int[] arrayB) {
-        String output = null;
-        //put your logic here
-        return output;
+        String result = "";
+
+        for (int i = 0; i < arrayA.length; i++) {
+
+            result += arrayA[i] + " ";
+            result += arrayB[i] + " ";
+        }
+
+        return result.trim();
     }
 }
