@@ -36,8 +36,27 @@ public class Ex08 {
     }
 
     String compute(int[] giftsWeights) {
-        String output = null;
-        //put your logic here
-        return output;
+        int sumA = 0;
+        int sumB = 0;
+
+        for (int weight : giftsWeights) {
+            if (sumA <= sumB) {
+                if (Math.abs((sumA + weight) - sumB) <= 5)
+                    sumA += weight;
+                else if (Math.abs(sumA - (sumB + weight)) <= 5)
+                    sumB += weight;
+                else
+                    return "N";
+            } else {
+                if (Math.abs((sumB + weight) - sumA) <= 5)
+                    sumB += weight;
+                else if (Math.abs(sumA + weight - sumB) <= 5)
+                    sumA += weight;
+                else
+                    return "N";
+            }
+        }
+
+        return "S";
     }
 }
