@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Arrays;
+
 /*
     Leia um conjunto de cinco números inteiros não repetidos em uma única linha e os armazene em um vetor de 10 posições.
     A partir daí, leia um número por vez. Se o número ainda não estiver no conjunto, faça a inclusão após o último número.
@@ -10,14 +12,59 @@ package br.edu.ifsp.list02;
  */
 public class Ex03 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        int[] array = new int[10];
+        int size = 5;
     }
 
     String compute(int[] firstFive, int[] otherInts) {
-        String output = null;
-        //put your logic here
-        return output;
+
+        int[] array = new int[10];
+        int size = 0;
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = i + 1; j < 5; j++) {
+                if (firstFive[i] == firstFive[j]) return "Erro";
+            }
+            array[size++] = firstFive[i];
+        }
+
+        String result = print(array, size);
+
+        for (int num : otherInts) {
+            int pos = -1;
+            for (int i = 0; i < size; i++) {
+                if (array[i] == num) {
+                    pos = i;
+                    break;
+                }
+            }
+
+            if (pos != -1) {
+                for (int i = pos; i < size - 1; i++)
+                    array[i] = array[i + 1];
+                size--;
+            } else {
+                if (size == 10) break;
+                array[size++] = num;
+            }
+
+            if (size == 0) break;
+
+            result += "\n" + print(array, size);
+
+            if (size == 10) break;
+        }
+        return result;
+    }
+
+    private String print(int[] array, int size) {
+        String linha = "";
+        for (int i = 0; i < size; i++) {
+            linha += array[i];
+            if (i < size - 1) linha += " ";
+        }
+        return linha;
     }
 }
+
+
