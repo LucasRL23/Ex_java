@@ -33,8 +33,16 @@ public class Ex04 {
     }
 
     int compute(int ia, int ib, int fa, int fb) {
-        int output = -1;
-        //put your logic here
-        return output;
+        int count = 0;
+
+        if (ib != fb) {
+            count++;
+            ia = 1 - ia;
+        }
+
+        if (ia != fa) {
+            count++;
+        }
+        return count;
     }
 }
